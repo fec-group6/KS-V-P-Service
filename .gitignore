@@ -3,3 +3,8 @@ node_modules
 config/config.js
 sampleYouTubeResponse.js
 public/bundle.js
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
