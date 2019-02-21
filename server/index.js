@@ -1,14 +1,14 @@
 const express = require('express')
 const app = express()
-const port = 3000
-const path = require('path')
 const VideoModel = require('../db/VideoModel');
+
+const PORT = process.env.PORT || 3001;
 
 if (!process.env.JEST_WORKER_ID) {
   const db = require('../db/index.js');
 }
 
-app.use(express.static('public'))
+app.use('/assets', express.static('public'))
 
 app.get('/video-player-service/api/get-video', (req, res) => {
   console.log(`Serving GET request on path: ${req.path}`)
@@ -19,7 +19,7 @@ app.get('/video-player-service/api/get-video', (req, res) => {
     params = { videoYouTubeId: req.query.videoId }
   } else {
     randomIndex = Math.floor(Math.random() * 100)
-    params = { videoIndex: randomIndex };
+    params = { videoIndex: randomIndex }; 
   }
   
   VideoModel.findOne(params, function (err, video) {
@@ -32,12 +32,11 @@ app.get('/video-player-service/api/get-video', (req, res) => {
   });
 })
 
-
 // catch-all
 app.get('*', (req, res) => {
   console.log(`Serving GET request on path: ${req.path}`)
   res.send(404, 'This page does not exist! Please try another URL, or go back to home page!')
 })
-const server = app.listen(port, () => { console.log(`Example app listening on port ${port}!`) })
+const server = app.listen(PORT, () => { console.log(`Example app listening on port ${PORT}!`) })
 
 module.exports = server;

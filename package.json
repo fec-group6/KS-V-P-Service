@@ -10,12 +10,14 @@
   "scripts": {
     "seedDb": "node db/seed.js",
     "test": "jest --verbose",
-    "watch": "webpack --watch --mode=development",
-    "build": "webpack --mode=production",
-    "runDev": "nodemon server/index.js"
+    "watch": "node_modules/.bin/webpack --watch --mode=development",
+    "build": "webpack",
+    "runDev": "nodemon server/index.js",
+    "start": "node server/index.js" 
   },
   "dependencies": {
     "express": "^4.16.4",
+    "forever": "^0.15.3",
     "mongoose": "^5.4.10"
   },
   "devDependencies": {

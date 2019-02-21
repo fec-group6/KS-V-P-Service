@@ -2,7 +2,7 @@ const db = require('./index.js'); // we only need this file to start our connect
 const VideoModel = require('./VideoModel.js');
 const mongoose = require('mongoose');
 const request = require('request')
-const YOUTUBE_API_KEY = require('../config/youtube.config.js')
+const YOUTUBE_API_KEY = require('../config/config.js').youTubeKey
 
 const createRequestParameters = (apiEndpoint, partToSearch, queryString, youTubeApiResponse) => {
   const result = {
