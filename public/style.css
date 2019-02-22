@@ -2,25 +2,20 @@ body {
   margin: 0;
 }
 .searchBar {
-  border: 3px solid red;
   padding: 20px 0 30px 50px;
 }
 
 .commentsSection {
   padding: 10px;
-  border: 3px solid red;
   height: 250px
 }
 
-
 .videoPlayer {
   padding: 10px;
-  border: 3px solid red;
   margin: auto;
 }
 
-.videoList {
-  border: 3px solid red;
+.video-list {
   padding: 10px;
   height: 500px
 }

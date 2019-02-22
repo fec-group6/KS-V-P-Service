@@ -37,6 +37,8 @@ app.get('*', (req, res) => {
   console.log(`Serving GET request on path: ${req.path}`)
   res.send(404, 'This page does not exist! Please try another URL, or go back to home page!')
 })
-const server = app.listen(PORT, () => { console.log(`Example app listening on port ${PORT}!`) })
+const server = app.listen(PORT, () => { console.log(`Video Player Service listening on port ${PORT}!`) })
 
 module.exports = server;
+
+//http://fec-ks-video-player.hussx9vrbw.us-west-2.elasticbeanstalk.com/

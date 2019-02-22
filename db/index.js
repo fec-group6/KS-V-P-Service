@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise
 const mongoUrl = require('../config/config').mongoDbAtlasUrl;
 
 const db = mongoose.connect(mongoUrl, { useNewUrlParser: true }, function (err) {

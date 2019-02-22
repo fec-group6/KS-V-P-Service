@@ -1,9 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
-import CommentsSection from './components/CommentsSection.jsx'
-import SearchBar from './components/SearchBar.jsx'
-import VideoList from './components/VideoList.jsx'
 import VideoPlayer from './components/VideoPlayer.jsx'
 
 class App extends React.Component {
@@ -17,13 +12,13 @@ class App extends React.Component {
 
   formatLikesAndDislikesCount(num) {
     if (num > 999999) {
-     return (num/1000000).toFixed(1) + 'm'
-   } else if (num > 999) {
-     return (num/1000).toFixed(1) + 'k'
-   } else {
-     return num
-   }
- }
+      return (num / 1000000).toFixed(1) + 'm'
+    } else if (num > 999) {
+      return (num / 1000).toFixed(1) + 'k'
+    } else {
+      return num
+    }
+  }
 
   componentDidMount() {
     fetch('/video-player-service/api/get-video')
@@ -40,7 +35,6 @@ class App extends React.Component {
       )
   }
 
-  
   handleSearchInput(event) {
     event.preventDefault();
     this.setState({
@@ -49,22 +43,7 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <SearchBar handleSearchInput={this.handleSearchInput.bind(this)} />
-        <div >
-          <div className="row">
-            <div className="col-xl-8">
-              <VideoPlayer video={this.state.video} />
-              <CommentsSection />
-            </div>
-            <div className="col-xl-4">
-              <VideoList />
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+    return <VideoPlayer video={this.state.video} />
   }
 }
 
