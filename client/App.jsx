@@ -21,6 +21,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    window.handleVideoListItemClick = function (result) {
+      this.setState({
+        video: result
+      })
+    }.bind(this);
+
     fetch('/video-player-service/api/get-video')
       .then(res => res.json())
       .then(
